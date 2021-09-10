@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_6ae37f5f4fff45dca4834b1a37793a0b }}/kris454/ebiznes2021-backend:${{ github.sha }}
+        tags: kris454/ebiznes2021-backend:latest
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'eloebiznes-backend'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6750888f4af9460dadeac3d48b1e21f9 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_6ae37f5f4fff45dca4834b1a37793a0b }}/kris454/ebiznes2021-backend:${{ github.sha }}'
+        images: kris454/ebiznes2021-backend:latest
