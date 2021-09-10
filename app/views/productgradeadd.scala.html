@@ -1,0 +1,20 @@
+@(productGrade: Form[CreateProductGradeForm], product: Seq[Product])(implicit request: MessagesRequestHeader, flash: Flash)
+
+    @import helper._
+
+    @flash.get("success").getOrElse("")
+
+    @form(routes.ProductGradeController.addProductGradeHandle()) {
+        @helper.CSRF.formField
+        @inputText(productGrade("grade"))
+
+        <select name="product" id="product">
+        @for(cat <- product) {
+            <option value="@cat.id">@cat.name</option>
+        }
+        </select>
+
+        <div class="buttons">
+            <input type="submit" value="Add Product Grade"/>
+        </div>
+    }

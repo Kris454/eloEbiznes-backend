@@ -1,0 +1,8 @@
+@(shipping: Seq[Shipping])
+
+@for(shipping <- shipping) {
+    <strong>@shipping.user</strong>
+    <strong>@shipping.address</strong>
+    <strong>@shipping.typeOf</strong>
+    <a href="@controllers.routes.ShippingController.removeShipping(shipping.id)">Delete</a>
+}

@@ -1,0 +1,6 @@
+@(carts: Seq[Cart])
+
+@for(cart <- carts) {
+    <strong>@cart.user</strong>
+    <a href="@controllers.routes.CartController.removeCart(cart.id)">Delete</a>
+}

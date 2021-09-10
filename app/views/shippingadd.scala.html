@@ -1,0 +1,21 @@
+@(shipping: Form[CreateShippingForm], user: Seq[User])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+
+@form(routes.ShippingController.addShippingHandle()) {
+    @helper.CSRF.formField
+    <select name="user" id="user">
+    @for(ord <- user) {
+        <option value="@ord.id">@ord.id</option>
+    }
+    </select>
+    @inputText(shipping("address"))
+    @inputText(shipping("typeOf"))
+    1 - Kurier
+    2 - Poczta
+    <div class="buttons">
+        <input type="submit" value="Add Shipping"/>
+    </div>
+}

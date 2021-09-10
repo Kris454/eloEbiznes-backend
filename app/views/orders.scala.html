@@ -1,0 +1,7 @@
+@(orders: Seq[Order])
+
+@for(order <- orders) {
+    <strong>@order.user</strong>
+    <strong>@order.price</strong>
+    <a href="@controllers.routes.OrderController.removeOrder(order.id)">Delete</a>
+}

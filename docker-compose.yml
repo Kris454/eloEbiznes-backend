@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ebiznes-backend:
+    build: .
+    ports:
+      - 9000:9000
+    volumes:
+      - ./:/opt/ebiznes-backend
+    working_dir: /opt/ebiznes-backend/
+#    command: bash
+    command: bash -c "/usr/local/sbt/bin/sbt run"

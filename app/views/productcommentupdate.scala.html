@@ -1,0 +1,26 @@
+@(productComment: Form[UpdateProductCommentForm],product: Seq[Product])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+
+@form(routes.ProductCommentController.updateProductCommentHandle()) {
+    @helper.CSRF.formField
+    <input name="id" id="id" value="@productComment("id").value" type="hidden" />
+    @inputText(productComment("comment"))
+
+    <select name="product" id="product">
+    @for(bk <- product){
+        @if(bk.id.toString==productComment("product").value.getOrElse(0)) {
+            <option value="@bk.id" selected>@bk.name</option>
+        }else{
+            <option value="@bk.id">@bk.name</option>
+        }
+
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Update Product Comment"/>
+    </div>
+}

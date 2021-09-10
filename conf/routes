@@ -1,0 +1,149 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index()
+
+#Category
+GET           /getcategories                   controllers.CategoryController.getCategories()
+GET           /addcategory                     controllers.CategoryController.addCategory()
+GET           /deletecategory/:id              controllers.CategoryController.removeCategory(id: Int)
+POST          /addcategoryhandle               controllers.CategoryController.addCategoryHandle()
+
+#Category Rest
+GET           /category                        controllers.CategoryController.getCategoriesJson()
+DELETE        /category/:id                    controllers.CategoryController.removeCategoryJson(id: Int)
+POST          /category                        controllers.CategoryController.addCategoryJson()
+
+#Product
+GET           /getproducts                        controllers.ProductController.getProducts()
+GET           /getproduct/:id                     controllers.ProductController.getProduct(id: Long)
+GET           /removeproduct/:id                  controllers.ProductController.removeProduct(id: Long)
+GET           /updateproduct/:id                  controllers.ProductController.updateProduct(id: Long)
+GET           /addproduct                         controllers.ProductController.addProduct()
+POST          /addproducthandle                   controllers.ProductController.addProductHandle()
+POST          /updateproducthandle                controllers.ProductController.updateProductHandle()
+
+#REST
+GET           /products                           controllers.ProductController.getProductsJson()
+GET           /products/:id                       controllers.ProductController.getProductJson(id: Long)
+DELETE        /products/:id                       controllers.ProductController.removeProductJson(id: Long)
+PUT           /products/:id                       controllers.ProductController.updateProductJson(id: Long)
+POST          /products                           controllers.ProductController.addProductJson()
+
+#User
+GET           /getusers                        controllers.UserController.getUsers()
+GET           /removeuser/:id                  controllers.UserController.removeUser(id: Long)
+GET           /updateuser/:id                  controllers.UserController.updateUser(id: Long)
+POST          /updateuserhandle                controllers.UserController.updateUserHandle()
+
+#REST
+GET           /user                            controllers.UserController.getUsersJson()
+GET           /user/:id                        controllers.UserController.getUserJson(id: Long)
+DELETE        /user/:id                        controllers.UserController.removeUserJson(id: Long)
+PUT           /user/:id                        controllers.UserController.updateUserJson(id: Long)
+
+#Product Comment
+GET           /getproductcomments                  controllers.ProductCommentController.getProductComments()
+GET           /removeproductcomment/:id            controllers.ProductCommentController.removeProductComment(id: Long)
+GET           /addproductcomment                   controllers.ProductCommentController.addProductComment()
+GET           /updateproductcomment/:id            controllers.ProductCommentController.updateProductComment(id: Long)
+POST          /addproductcommenthandle             controllers.ProductCommentController.addProductCommentHandle()
+POST          /updateproductcommenthandle          controllers.ProductCommentController.updateProductCommentHandle()
+
+#REST
+GET           /productComments                     controllers.ProductCommentController.getCommentsJson()
+GET           /productComments/:id                 controllers.ProductCommentController.getCommentJson(id: Long)
+DELETE        /productComments/:id                 controllers.ProductCommentController.removeCommentJson(id: Long)
+PUT           /productComments/:id                 controllers.ProductCommentController.updateCommentJson(id: Long)
+POST          /productComments                     controllers.ProductCommentController.addCommentJson()
+
+#Product Grade
+GET           /getproductgrades                  controllers.ProductGradeController.getProductGrades()
+GET           /removeproductgrade/:id            controllers.ProductGradeController.removeProductGrade(id: Long)
+GET           /addproductgrade                   controllers.ProductGradeController.addProductGrade()
+GET           /updateproductgrade/:id            controllers.ProductGradeController.updateProductGrade(id: Long)
+POST          /addproductgradehandle             controllers.ProductGradeController.addProductGradeHandle()
+POST          /updateproductgradehandle          controllers.ProductGradeController.updateProductGradeHandle()
+
+#REST
+GET           /productGrades                     controllers.ProductGradeController.getGradesJson()
+GET           /productGrades/:id                 controllers.ProductGradeController.getGradeJson(id: Long)
+DELETE        /productGrades/:id                 controllers.ProductGradeController.removeGradeJson(id: Long)
+PUT           /productGrades/:id                 controllers.ProductGradeController.updateGradeJson(id: Long)
+POST          /productGrades                     controllers.ProductGradeController.addGradeJson()
+
+#Cart
+GET           /getcarts                        controllers.CartController.getCarts()
+GET           /removeCart/:id                  controllers.CartController.removeCart(id: Long)
+GET           /addCart                         controllers.CartController.addCart()
+POST          /addcarthandle                   controllers.CartController.addCartHandle()
+
+#REST
+GET           /cart                            controllers.CartController.getCartsJson()
+GET           /cart/:id                        controllers.CartController.getCartJson(id: Long)
+DELETE        /cart/:id                        controllers.CartController.removeCartJson(id: Long)
+POST          /cart                            controllers.CartController.addCartJson()
+
+#Voucher
+GET           /getvouchers              controllers.VoucherController.getVouchers()
+GET           /removevoucher/:id        controllers.VoucherController.removeVoucher(id: Long)
+GET           /addvoucher               controllers.VoucherController.addVoucher()
+POST          /addvoucherhandle         controllers.VoucherController.addVoucherHandle()
+
+#REST
+GET           /voucher                  controllers.VoucherController.getVouchersJson()
+GET           /voucher/:id              controllers.VoucherController.getVoucherJson(id: Long)
+DELETE        /voucher/:id              controllers.VoucherController.removeVoucherJson(id: Long)
+POST          /voucher                  controllers.VoucherController.addVoucherJson()
+
+#Order
+GET           /getorders                       controllers.OrderController.getOrders()
+DELETE        /removeorder/:id                 controllers.OrderController.removeOrder(id: Long)
+POST          /addorder                        controllers.OrderController.addOrder()
+POST          /addorderhandle                  controllers.OrderController.addOrderHandle()
+
+#REST
+GET           /order                           controllers.OrderController.getOrdersJson()
+GET           /order/:id                       controllers.OrderController.getOrderJson(id: Long)
+GET           /order/:id                       controllers.OrderController.getOrderByUserJson(id: Long)
+DELETE        /order/:id                       controllers.OrderController.removeOrderJson(id: Long)
+PUT           /order/:id                       controllers.OrderController.updateOrderJson(id: Long)
+POST          /order                           controllers.OrderController.addOrderJson()
+
+#Shipping
+GET           /getshippings                    controllers.ShippingController.getShippings()
+DELETE        /removeshipping/:id              controllers.ShippingController.removeShipping(id: Long)
+POST          /addshipping                     controllers.ShippingController.addShipping()
+POST          /addshippinghandle               controllers.ShippingController.addShippingHandle()
+
+#REST
+GET           /shippings                           controllers.ShippingController.getShippingsJson()
+GET           /shippings/:id                       controllers.ShippingController.getShippingJson(id: Long)
+GET           /shippings/:id                       controllers.ShippingController.getShippingByUserJson(id: Long)
+DELETE        /shippings/:id                       controllers.ShippingController.removeShippingJson(id: Long)
+PUT           /shippings/:id                       controllers.ShippingController.updateShippingJson(id: Long)
+POST          /shippings                           controllers.ShippingController.addShippingJson()
+
+#Return
+GET           /getreturns                      controllers.ReturnController.getReturns()
+GET           /removereturn/:id                controllers.ReturnController.removeReturn(id: Long)
+GET           /addreturn                       controllers.ReturnController.addReturn()
+POST          /addreturnhandle                 controllers.ReturnController.addReturnHandle()
+
+#REST
+GET           /return                          controllers.ReturnController.getReturnsJson()
+GET           /return/:id                      controllers.ReturnController.getReturnJson(id: Long)
+DELETE        /return/:id                      controllers.ReturnController.removeReturnJson(id: Long)
+POST          /return                          controllers.ReturnController.addReturnJson()
+
+# Authentication
+POST          /signUp                          controllers.SignUpController.signUp
+POST          /signIn                          controllers.SignInController.signIn
+POST          /signOut                         controllers.SignInController.signOut
+GET           /authenticate/:provider          controllers.SocialAuthController.authenticate(provider: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

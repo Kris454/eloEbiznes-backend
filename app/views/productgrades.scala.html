@@ -1,0 +1,8 @@
+@(productGrades: Seq[ProductGrade])
+
+@for(productGrade <- productGrades) {
+    <strong>@productGrade.product</strong>
+    @productGrade.grade
+    <a href="@controllers.routes.ProductGradeController.updateProductGrade(productGrade.id)">Edit</a>
+    <a href="@controllers.routes.ProductGradeController.removeProductGrade(productGrade.id)">Delete</a>
+}

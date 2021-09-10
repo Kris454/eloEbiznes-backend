@@ -1,0 +1,8 @@
+@(productComments: Seq[ProductComment])
+
+@for(productComment <- productComments) {
+    <strong>@productComment.product</strong>
+    @productComment.comment
+    <a href="@controllers.routes.ProductCommentController.updateProductComment(productComment.id)">Edit</a>
+    <a href="@controllers.routes.ProductCommentController.removeProductComment(productComment.id)">Delete</a>
+}

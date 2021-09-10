@@ -1,0 +1,26 @@
+@(productGrade: Form[UpdateProductGradeForm],product: Seq[Product])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+
+@form(routes.ProductGradeController.updateProductGradeHandle()) {
+    @helper.CSRF.formField
+    <input name="id" id="id" value="@productGrade("id").value" type="hidden" />
+    @inputText(productGrade("grade"))
+
+    <select name="product" id="product">
+    @for(bk <- product){
+        @if(bk.id.toString==productGrade("product").value.getOrElse(0)) {
+            <option value="@bk.id" selected>@bk.name</option>
+        }else{
+            <option value="@bk.id">@bk.name</option>
+        }
+
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Update Product Grade"/>
+    </div>
+}
