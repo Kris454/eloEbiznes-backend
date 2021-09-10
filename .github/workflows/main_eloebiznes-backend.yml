@@ -23,8 +23,8 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_924291c1d9e44462a22f09ccd59b438d }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_62a4043341284dccabda032db0d3fdd8 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_6ae37f5f4fff45dca4834b1a37793a0b }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_4e5036edaeb340de981acca99287a846 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
@@ -45,7 +45,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'ebiznes2021-backend'
+        app-name: 'eloebiznes-backend'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f329823c004449ea9ff391f4866d3sd }}
-        images: 'kris454/ebiznes2021-backend:latest'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6750888f4af9460dadeac3d48b1e21f9 }}
+        images: kris454/ebiznes2021-backend:latest
